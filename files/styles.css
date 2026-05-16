@@ -1,0 +1,814 @@
+/* ============================================================
+    MFN DUALITY STUDIO — styles.css
+    Estructura:
+      1. Variables & Reset
+      2. Base
+      3. Navegación
+      4. Hero
+      5. Secciones generales
+      6. Servicios
+      7. Equipo
+      8. Reserva / Booking
+        8a. Calendario
+        8b. Time Slots
+        8c. Contacto & Botón
+      . Footer
+    10. Toast
+    11. Animaciones
+    12. Responsive
+============================================================ */
+
+
+/* ─────────────────────────────────────────────────────────
+    1. VARIABLES & RESET
+───────────────────────────────────────────────────────── */
+
+:root {
+  /* Paleta */
+  --gold:           #C98B2E;
+  --gold-light:     #E5A93D;
+  --dark:           #111010;
+  --dark-2:         #1a1a1a;
+  --dark-3:         #222222;
+  --cream:          #F5F0E0;
+  --text-muted:     #aaaaaa;
+  --border-gold:    rgba(201, 139, 46, 0.35);
+  --purple-accent:  #222222;
+
+  /* Tipografía */
+  --font-display:   'Bebas Neue', cursive;
+  --font-heading:   'Oswald', sans-serif;
+  --font-body:      'Lato', sans-serif;
+
+  /* Espaciado */
+  --section-padding: 5rem 2rem;
+  --nav-height:      60px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+                        2. BASE
+───────────────────────────────────────────────────────── */
+
+body {
+  font-family:  var(--font-body);
+  background:   var(--dark);
+  color:        #ffffff;
+  overflow-x:   hidden;
+  line-height:  1.6;
+}
+
+img {
+  display:    block;
+  max-width:  100%;
+}
+
+a {
+  color:           inherit;
+  text-decoration: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+              3. NAVEGACIÓN
+───────────────────────────────────────────────────────── */
+
+#navbar {
+  position:        fixed;
+  top:             0;
+  left:            0;
+  right:           0;
+  z-index:         100;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         0 2rem;
+  height:          var(--nav-height);
+  background:      rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom:   3px solid var(--purple-accent);
+}
+
+.nav-logo {
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      1rem;
+  line-height:    1.2;
+  color:          #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display:     flex;
+  align-items: center;
+  gap:         2rem;
+  list-style:  none;
+}
+
+.nav-links a {
+  font-family:    var(--font-heading);
+  font-size:      0.85rem;
+  letter-spacing: 0.08em;
+  color:          #cccccc;
+  transition:     color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-cta {
+  background:    var(--gold);
+  color:         #000000 !important;
+  padding:       0.45rem 1.1rem;
+  border-radius: 4px;
+  font-weight:   700;
+  transition:    background 0.2s ease !important;
+}
+
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  color:      #000000 !important;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+    4. HERO
+───────────────────────────────────────────────────────── */
+
+#hero {
+  position:   relative;
+  height:     100vh;
+  min-height: 600px;
+  display:    flex;
+  align-items: center;
+  overflow:   hidden;
+}
+
+.hero-bg {
+  position:   absolute;
+  inset:      0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.82) 40%,
+      rgba(0, 0, 0, 0.30) 100%
+    ),
+    url('/assets/hero.webp')
+    center / cover no-repeat;
+}
+
+.hero-content {
+  position:  relative;
+  padding:   0 4rem;
+  max-width: 680px;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-content h1 {
+  font-family:    var(--font-display);
+  font-size:      clamp(3.5rem, 8vw, 6.5rem);
+  line-height:    0.95;
+  color:          var(--gold-light);
+  text-shadow:    0 2px 20px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.hero-content p {
+  margin-top:     1.2rem;
+  font-size:      1.15rem;
+  color:          #e0e0e0;
+  font-weight:    300;
+  letter-spacing: 0.03em;
+}
+
+.hero-btn {
+  display:        inline-block;
+  margin-top:     2rem;
+  background:     var(--gold);
+  color:          #000000;
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      0.9rem;
+  letter-spacing: 0.12em;
+  padding:        0.85rem 2.2rem;
+  border-radius:  4px;
+  transition:     background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-btn:hover {
+  background: var(--gold-light);
+  transform:  translateY(-2px);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   5. SECCIONES GENERALES
+───────────────────────────────────────────────────────── */
+
+section {
+  padding: var(--section-padding);
+}
+
+.section-title {
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      clamp(1.8rem, 4vw, 2.6rem);
+  text-align:     center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom:  3rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   6. SERVICIOS
+───────────────────────────────────────────────────────── */
+
+#servicios {
+  background: var(--cream);
+  color:      #111111;
+}
+ 
+#servicios .section-title {
+  color: #111111;
+}
+ 
+.services-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:                   1.5rem;
+  max-width:             900px;
+  margin:                0 auto;
+}
+ 
+.service-card {
+  background:     var(--dark);
+  border:         2px solid var(--gold);
+  border-radius:  8px;
+  padding:        2rem 1.5rem;
+  text-align:     center;
+  display:        flex;
+  flex-direction: column;
+  gap:            1rem;
+  transition:     transform 0.25s ease, box-shadow 0.25s ease;
+}
+ 
+.service-card:hover {
+  transform:  translateY(-6px);
+  box-shadow: 0 12px 36px rgba(201, 139, 46, 0.25);
+}
+ 
+.service-card h3 {
+  font-family:    var(--font-heading);
+  font-size:      1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          #ffffff;
+}
+ 
+.service-card .price {
+  font-family:    var(--font-display);
+  font-size:      2rem;
+  color:          #ffffff;
+  letter-spacing: 0.05em;
+}
+ 
+.service-card .price.custom {
+  font-family:    var(--font-display);
+  font-size:      2rem;
+  letter-spacing: 0.05em;
+}
+ 
+.service-btn {
+  display:        inline-block;
+  background:     var(--gold);
+  color:          #000000;
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding:        0.5rem 1rem;
+  border-radius:  4px;
+  text-align:     center;
+  transition:     background 0.2s ease, transform 0.2s ease;
+}
+ 
+.service-btn:hover {
+  background: var(--gold-light);
+  transform:  translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   7. EQUIPO
+───────────────────────────────────────────────────────── */
+
+#equipo {
+  background: var(--dark);
+}
+
+.team-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:                   1.5rem;
+  max-width:             900px;
+  margin:                0 auto;
+}
+
+.team-card {
+  border-radius: 10px;
+  overflow:      hidden;
+  border:        2px solid var(--border-gold);
+  position:      relative;
+  aspect-ratio:  3 / 4;
+  transition:    border-color 0.25s ease, transform 0.25s ease;
+}
+
+.team-card:hover {
+  border-color: var(--gold);
+  transform:    scale(1.03);
+}
+
+.team-card img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  filter:     grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.team-card:hover img {
+  filter: grayscale(0%);
+}
+
+.team-name {
+  position:       absolute;
+  bottom:         0;
+  left:           0;
+  right:          0;
+  background:     linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding:        2rem 1rem 0.8rem;
+  font-family:    var(--font-heading);
+  font-size:      1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align:     center;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   8. RESERVA / BOOKING
+───────────────────────────────────────────────────────── */
+
+#reserva {
+  background: var(--cream);
+}
+
+#reserva .section-title {
+  color: #111111;
+}
+
+.booking-box {
+  background:    var(--dark-2);
+  border-radius: 12px;
+  max-width:     800px;
+  margin:        0 auto;
+  padding:       2.5rem 2rem;
+  border:        1px solid var(--border-gold);
+}
+
+.booking-box h2 {
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      1.5rem;
+  letter-spacing: 0.12em;
+  text-align:     center;
+  text-transform: uppercase;
+  margin-bottom:  0.4rem;
+}
+
+.booking-box p.sub {
+  text-align:    center;
+  color:         var(--text-muted);
+  font-size:     0.85rem;
+  margin-bottom: 2rem;
+}
+
+.booking-cols {
+  display:               grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:                   1.5rem;
+  margin-bottom:         2rem;
+}
+
+.booking-col h4 {
+  font-family:    var(--font-heading);
+  font-size:      0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--text-muted);
+  margin-bottom:  0.8rem;
+}
+
+.select-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.6rem;
+}
+
+.booking-select {
+  width:         100%;
+  background:    var(--dark-3);
+  border:        1px solid #444444;
+  color:         #cccccc;
+  padding:       0.55rem 0.9rem;
+  border-radius: 5px;
+  font-family:   var(--font-body);
+  font-size:     0.88rem;
+  appearance:    none;
+  cursor:        pointer;
+  transition:    border-color 0.2s ease;
+}
+
+.booking-select:focus {
+  outline:      none;
+  border-color: var(--gold);
+}
+
+
+/* ── 8a. Calendario ── */
+
+.calendar-nav {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  margin-bottom:   0.6rem;
+}
+
+.calendar-nav button {
+  background: none;
+  border:     none;
+  color:      var(--gold);
+  font-size:  1.1rem;
+  cursor:     pointer;
+  padding:    0 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.calendar-nav button:hover {
+  color: var(--gold-light);
+}
+
+.calendar-nav span {
+  font-family:    var(--font-heading);
+  font-size:      0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.calendar-grid {
+  display:               grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap:                   3px;
+  margin-bottom:         1rem;
+}
+
+.cal-day-header {
+  font-family:    var(--font-heading);
+  font-size:      0.65rem;
+  letter-spacing: 0.05em;
+  color:          var(--text-muted);
+  text-align:     center;
+  padding:        2px 0;
+}
+
+.cal-day {
+  text-align:    center;
+  padding:       5px 2px;
+  border-radius: 4px;
+  font-size:     0.75rem;
+  cursor:        pointer;
+  color:         #cccccc;
+  transition:    background 0.15s ease;
+}
+
+.cal-day:hover:not(.empty):not(.disabled) {
+  background: rgba(201, 139, 46, 0.2);
+}
+
+.cal-day.selected {
+  background:  var(--gold);
+  color:       #000000;
+  font-weight: 700;
+}
+
+.cal-day.today {
+  color:       var(--gold);
+  font-weight: 700;
+}
+
+.cal-day.disabled {
+  color:  #444444;
+  cursor: default;
+}
+
+.cal-day.empty {
+  cursor: default;
+}
+
+
+/* ── 8b. Time Slots ── */
+
+.time-slots {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   5px;
+}
+
+.time-slot {
+  background:    var(--dark-3);
+  border:        1px solid #444444;
+  color:         #cccccc;
+  border-radius: 4px;
+  padding:       0.35rem 0.3rem;
+  font-size:     0.72rem;
+  font-family:   var(--font-heading);
+  letter-spacing: 0.04em;
+  cursor:        pointer;
+  text-align:    center;
+  transition:    background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.time-slot:hover {
+  border-color: var(--gold);
+  color:        var(--gold);
+}
+
+.time-slot.selected {
+  background:   var(--gold);
+  color:        #000000;
+  border-color: var(--gold);
+  font-weight:  700;
+}
+
+.time-slot.taken {
+  background:   #2a2a2a;
+  color:        #555555;
+  border-color: #333333;
+  cursor:       not-allowed;
+}
+
+
+/* ── 8c. Contacto & Botón ── */
+
+.booking-contact {
+  display:               grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:                   1rem;
+  margin-bottom:         1.5rem;
+}
+
+.booking-input {
+  width:         100%;
+  background:    var(--dark-3);
+  border:        1px solid #444444;
+  color:         #cccccc;
+  padding:       0.65rem 1rem;
+  border-radius: 5px;
+  font-family:   var(--font-body);
+  font-size:     0.9rem;
+  transition:    border-color 0.2s ease;
+}
+
+.booking-input::placeholder {
+  color:          #555555;
+  text-transform: uppercase;
+  font-size:      0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.booking-input:focus {
+  outline:      none;
+  border-color: var(--gold);
+}
+
+.confirm-btn {
+  width:          100%;
+  background:     var(--gold);
+  color:          #000000;
+  border:         none;
+  padding:        1rem;
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  font-size:      1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius:  5px;
+  cursor:         pointer;
+  transition:     background 0.2s ease, transform 0.15s ease;
+}
+
+.confirm-btn:hover {
+  background: var(--gold-light);
+  transform:  translateY(-1px);
+}
+
+.confirm-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   9. FOOTER
+───────────────────────────────────────────────────────── */
+
+#footer {
+  background:            #0a0a0a;
+  padding:               3rem 2rem;
+  display:               grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap:                   2rem;
+  align-items:           start;
+  border-top:            1px solid #222222;
+}
+
+.footer-contact h4,
+.footer-hours h4 {
+  font-family:    var(--font-heading);
+  font-size:      1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom:  1rem;
+}
+
+.footer-contact p,
+.footer-hours p {
+  font-size:     0.85rem;
+  color:         #aaaaaa;
+  margin-bottom: 0.4rem;
+  line-height:   1.6;
+}
+
+.footer-contact p span {
+  display:      inline-block;
+  margin-right: 0.4rem;
+  color:        var(--gold);
+}
+
+.map-placeholder {
+  width:         180px;
+  height:        130px;
+  border-radius: 8px;
+  overflow:      hidden;
+  border:        2px solid var(--border-gold);
+}
+
+.map-placeholder iframe {
+  width:   100%;
+  height:  100%;
+  border:  none;
+  filter:  grayscale(60%);
+}
+
+.footer-socials {
+  display:    flex;
+  gap:        0.8rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  width:           36px;
+  height:          36px;
+  border-radius:   50%;
+  background:      var(--dark-3);
+  border:          1px solid var(--border-gold);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  color:           #cccccc;
+  font-size:       0.9rem;
+  cursor:          pointer;
+  transition:      border-color 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  border-color: var(--gold);
+  color:        var(--gold);
+}
+
+.footer-copy {
+  grid-column: 1 / -1;
+  text-align:  center;
+  color:       #444444;
+  font-size:   0.75rem;
+  margin-top:  1rem;
+  letter-spacing: 0.05em;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   10. TOAST
+───────────────────────────────────────────────────────── */
+
+.toast {
+  position:       fixed;
+  bottom:         2rem;
+  right:          2rem;
+  background:     var(--gold);
+  color:          #000000;
+  font-family:    var(--font-heading);
+  font-weight:    700;
+  letter-spacing: 0.08em;
+  padding:        1rem 1.8rem;
+  border-radius:  6px;
+  font-size:      0.9rem;
+  z-index:        999;
+  transform:      translateY(100px);
+  opacity:        0;
+  transition:     transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity:   1;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   11. ANIMACIONES
+───────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity:   0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity:    0;
+  transform:  translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* Stagger de hijos */
+.fade-in:nth-child(1) { transition-delay: 0.05s; }
+.fade-in:nth-child(2) { transition-delay: 0.15s; }
+.fade-in:nth-child(3) { transition-delay: 0.25s; }
+.fade-in:nth-child(4) { transition-delay: 0.35s; }
+
+
+/* ─────────────────────────────────────────────────────────
+   12. RESPONSIVE
+───────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 2rem;
+  }
+
+  .booking-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  #footer {
+    grid-template-columns: 1fr;
+  }
+
+  .map-placeholder {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

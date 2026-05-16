@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MFN Duality Studio — Barbería profesional. Reservá tu turno online." />
+  <title>MFN Duality Studio</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+                  NAVEGACIÓN
+  ════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">MFN Duality Studio</div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">HOME</a></li>
+      <li><a href="#servicios">SERVICIOS</a></li>
+      <li><a href="#equipo">NUESTRO EQUIPO</a></li>
+      <li><a href="#reserva" class="nav-cta">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+                      HERO
+  ════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>TU ESTILO AL<br>SIGUIENTE<br>NIVEL</h1>
+      <p>Reserva para tu próximo cambio.</p>
+      <a href="#reserva" class="hero-btn">RESERVA TU CITA</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+                  SERVICIOS
+  ════════════════════════════════════════ -->
+  <section id="servicios">
+    <h2 class="section-title">SERVICIOS</h2>
+    <div class="services-grid">
+
+      <article class="service-card fade-in">
+        <h3>Corte Clásico</h3>
+        <div class="price">$15.000</div>
+        <a href="#reserva" class="service-btn">RESERVA TU TURNO!</a>
+      </article>
+
+      <article class="service-card fade-in">
+        <h3>Barba</h3>
+        <div class="price">$7.500</div>
+        <a href="#reserva" class="service-btn">RESERVA TU TURNO!</a>
+      </article>
+
+      <article class="service-card fade-in">
+        <h3>Corte y Barba</h3>
+        <div class="price">$20.000</div>
+        <a href="#reserva" class="service-btn">RESERVA TU TURNO!</a>
+      </article>
+
+      <article class="service-card fade-in">
+        <h3>Coloración</h3>
+        <div class="price custom">$35.000</div>
+        <a href="#reserva" class="service-btn">RESERVA TU TURNO!</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+                  NUESTRO EQUIPO
+  ════════════════════════════════════════ -->
+  <section id="equipo">
+    <h2 class="section-title">NUESTRO EQUIPO</h2>
+    <div class="team-grid">
+
+      <div class="team-card fade-in">
+        <img
+          src="/assets/alex.webp"
+          alt="Alex — Barbero"
+          loading="lazy"
+        />
+        <div class="team-name">Alexis</div>
+      </div>
+
+      <div class="team-card fade-in">
+        <img
+          src="/assets/miguel.webp"
+          alt="Miguel — Barbero"
+          loading="lazy"
+        />
+        <div class="team-name">Miguel</div>
+      </div>
+
+      <div class="team-card fade-in">
+        <img
+          src="/assets/Chris.webp"
+          alt="Chris — Barbero"
+          loading="lazy"
+        />
+        <div class="team-name">Alejandra</div>
+      </div>
+
+      <div class="team-card fade-in">
+        <img
+          src="/assets/santiago.webp"
+          alt="Santiago — Barbero"
+          loading="lazy"
+        />
+        <div class="team-name">Santiago</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+        RESERVA TU TURNO
+  ════════════════════════════════════════ -->
+  <section id="reserva">
+    <h2 class="section-title">RESERVA TU TURNO</h2>
+
+    <div class="booking-box">
+      <h2>HACE TU RESERVACION</h2>
+      <p class="sub">Seleccione el servicio, la fecha y el barbero que desee.</p>
+
+      <div class="booking-cols">
+
+        <!-- Columna 1: Servicio -->
+        <div class="booking-col">
+          <h4>1. Selecciona el servicio</h4>
+          <div class="select-group">
+            <select class="booking-select" id="sel-service">
+              <option value="signature">Corte Clásico</option>
+              <option value="beard">Barba</option>
+              <option value="full">Servicio Full</option>
+              <option value="classic">Coloración y otros</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Columna 2: Barbero -->
+        <div class="booking-col">
+          <h4>2. Selecciona el Barbero</h4>
+          <div class="select-group">
+            <select class="booking-select" id="sel-barber">
+              <option value="alex">Alexis</option>
+              <option value="miguel">Miguel</option>
+              <option value="chris">Alejandra</option>
+              <option value="santiago">Santiago</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Columna 3: Fecha y Hora -->
+        <div class="booking-col">
+          <h4>3. Seleccioná Fecha &amp; Hora</h4>
+
+          <div class="calendar-nav">
+            <button id="prev-month" aria-label="Mes anterior">&#8249;</button>
+            <span id="month-label"></span>
+            <button id="next-month" aria-label="Mes siguiente">&#8250;</button>
+          </div>
+
+          <div
+            class="calendar-grid"
+            id="calendar"
+            role="grid"
+            aria-label="Calendario de reservas"
+          ></div>
+
+          <div class="time-slots" id="time-slots" role="list" aria-label="Horarios disponibles">
+            <div class="time-slot" data-t="9:00 AM"  role="listitem">9:00 AM</div>
+            <div class="time-slot taken"              role="listitem">9:30 AM</div>
+            <div class="time-slot" data-t="10:00 AM" role="listitem">10:00 AM</div>
+            <div class="time-slot" data-t="10:30 AM" role="listitem">10:30 AM</div>
+            <div class="time-slot taken"              role="listitem">11:00 AM</div>
+            <div class="time-slot" data-t="11:30 AM" role="listitem">11:30 AM</div>
+            <div class="time-slot" data-t="2:00 PM"  role="listitem">2:00 PM</div>
+            <div class="time-slot" data-t="2:30 PM"  role="listitem">2:30 PM</div>
+            <div class="time-slot taken"              role="listitem">4:00 PM</div>
+            <div class="time-slot" data-t="4:30 PM"  role="listitem">4:30 PM</div>
+            <div class="time-slot" data-t="5:00 PM"  role="listitem">5:00 PM</div>
+            <div class="time-slot taken"              role="listitem">5:30 PM</div>
+          </div>
+        </div>
+
+      </div><!-- /.booking-cols -->
+
+      <!-- Datos de contacto -->
+      <div class="booking-contact">
+        <input
+          class="booking-input"
+          type="text"
+          id="inp-name"
+          placeholder="Nombre"
+          autocomplete="name"
+        />
+        <input
+          class="booking-input"
+          type="email"
+          id="inp-email"
+          placeholder="Email"
+          autocomplete="email"
+        />
+        <input
+          class="booking-input"
+          type="tel"
+          id="inp-phone"
+          placeholder="TELEFONO"
+          autocomplete="tel"
+        />
+      </div>
+
+      <button class="confirm-btn" id="confirm-btn">Confirma tu reserva</button>
+    </div><!-- /.booking-box -->
+  </section>
+
+  <!-- ═══════════════════════════════════════
+        FOOTER
+  ════════════════════════════════════════ -->
+  <footer id="footer">
+
+    <div class="footer-contact">
+      <h4>Información de Contacto</h4>
+      <p><span aria-hidden="true">📍</span> 6300 Santa Rosa, La Pampa, AR, 50001</p>
+      <p><span aria-hidden="true">📞</span> +54 (2954) 635-***</p>
+      <div class="footer-socials">
+        <a class="social-icon" href="#" aria-label="Facebook">f</a>
+        <a class="social-icon" href="#" aria-label="Instagram">@</a>
+        <a class="social-icon" href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="map-placeholder">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-64.3,-36.7,-64.2,-36.6&layer=mapnik"
+        title="Ubicación de MFN Duality Studio"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <div class="footer-hours">
+      <h4>Horarios</h4>
+      <p>LUN &ndash; SAB &nbsp; 9:00 &ndash; 19:00</p>
+      <p>DOM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10:00 &ndash; 15:00</p>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 MFN Duality Studio. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Toast de confirmación -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Script principal (defer: ejecuta después de parsear el DOM) -->
+  <script src="main.js" defer></script>
+</body>
+</html>
