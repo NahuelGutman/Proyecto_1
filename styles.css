@@ -167,7 +167,7 @@ a {
       rgba(0, 0, 0, 0.82) 40%,
       rgba(0, 0, 0, 0.30) 100%
     ),
-    url('/assets/hero.webp')
+    url('assets/hero.webp')
     center / cover no-repeat;
 }
 
